@@ -1,0 +1,545 @@
+/*! GENERAL */
+body,
+html {
+  background-color: #fff;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+main {
+  position: relative;
+  overflow: hidden;
+  transition: height 0.3s ease-in-out;
+}
+
+h1 {
+  margin: 0;
+  position: relative;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  text-align: center;
+  font-size: 30px;
+}
+
+h1 span {
+  font-size: 20px;
+  display: block;
+}
+
+p {
+  font-size: 30px;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+img {
+  max-width: 100%;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/*! NAVIGATION */
+
+.header {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 4.5rem;
+  background-color: #f4f4f4;
+}
+
+.logo_img {
+  height: 60px;
+  width: 60px;
+  transform: translateY(7px);
+}
+
+.main-nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-left {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  margin: 0;
+}
+
+.nav-right {
+  display: flex;
+  list-style: none;
+  align-items: center;
+}
+
+.nav-link {
+  padding: 1.7rem 1.2rem;
+  margin: 0rem 1rem;
+}
+
+.nav-link .fas {
+  color: #bdbdbd;
+  margin: 0 0.5rem;
+}
+
+.nav-right .super {
+  vertical-align: super;
+  font-size: 0.5rem;
+}
+
+/*! ASIDE MENU */
+
+.aside-section {
+  top: 0;
+  bottom: 0;
+  position: absolute;
+}
+
+.aside-left {
+  display: none;
+  width: 20%;
+  left: 0;
+  background-color: #ff5964;
+  transform: translateY(-100%);
+  transition: transform 0.4s ease-in-out;
+}
+
+.aside-right {
+  width: 80%;
+  right: 0;
+  top: 4rem;
+  background-color: #38618c;
+  transform: translateX(100%);
+  transition: transform 0.4s ease-in-out;
+  padding-top: 3rem;
+}
+
+.expanded.aside-left {
+  transform: translateY(0%);
+}
+
+.expanded.aside-right {
+  transform: translateX(0%);
+}
+
+.aside-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  padding-left: 50px;
+}
+
+/*? Left Aside List */
+
+.menu-left .nav-link,
+.menu-left ~ li:not(:last-child) .nav-link {
+  border-right: 2px solid #e0e0e0;
+}
+
+.aside-content {
+  display: flex;
+  flex-direction: column;
+  margin-top: 150px;
+  position: relative;
+  color: white;
+  text-align: center;
+  height: 100vh;
+}
+
+.aside-content h1 {
+  padding-left: 2rem;
+  font-size: 1.5rem;
+  order: -1;
+  top: unset;
+}
+
+.aside-content > a {
+  font-size: 1rem;
+  padding-left: 6.5rem;
+  margin-bottom: 1rem;
+  text-align: start;
+  color: #fff;
+}
+
+.aside-left-list {
+  display: flex;
+  flex-direction: column;
+  flex: 0 1 50%;
+}
+
+.aside-content > a:first-of-type {
+  margin-top: 3rem;
+}
+
+.aside-content h1 .fa-home {
+  margin-right: 0.7rem;
+}
+
+.aside-anchor-left {
+  display: inline-block;
+  font-size: 1.25em;
+  text-align: left;
+  width: calc(100% - 6rem);
+  line-height: 26px;
+  padding: 2.7rem 0rem 2.7rem 5.8rem;
+  border-right: 5px solid #fff;
+  color: #424242;
+}
+
+.aside-anchor-left:hover {
+  border-right: 3px solid #999;
+}
+
+/*? Right Aside List */
+
+.nav-right > li:not(:last-child) .nav-link {
+  border-right: 2px solid #e0e0e0;
+}
+
+.aside-anchor {
+  display: inline-block;
+  padding-bottom: 7px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.5rem;
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.aside-anchor::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  background-color: #ff5964;
+  left: 0;
+  right: 0;
+  height: 3px;
+  border-radius: 3px;
+}
+
+.aside-anchor::before {
+  border-radius: 3px;
+  content: '';
+  position: absolute;
+  bottom: 0;
+  background-color: #fff;
+  left: 0;
+  height: 3px;
+  z-index: 1;
+  width: 50%;
+  transition: transform 0.2s ease-in-out;
+}
+
+.aside-anchor:hover:before {
+  transform: translateX(100%);
+}
+
+.aside-anchor i {
+  margin-right: 0.5rem;
+}
+
+.sub-anchor {
+  display: inline-block;
+  padding: 0.5rem;
+  color: #fafafa;
+  text-align: start;
+}
+
+.sub-anchor:hover {
+  text-decoration: underline;
+}
+
+/* ASIDE-GRID (Right) */
+
+.aside-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  height: 100vh;
+}
+
+.sub-column {
+  list-style: none;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.column-1 > li {
+  flex: 0 1 40%;
+}
+
+.column-2 > li {
+  flex: 0 1 15%;
+}
+
+.column-3 > li {
+  flex: 0 1 5%;
+}
+
+/*!  CAROUSEL */
+
+.pic-ctn {
+  position: relative;
+  margin-top: 15vh;
+  height: 60vh;
+}
+
+@keyframes display {
+  0% {
+    transform: translateX(200px);
+    opacity: 0;
+  }
+  10% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  20% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  30% {
+    transform: translateX(-200px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(-200px);
+    opacity: 0;
+  }
+}
+
+.pic-ctn > .carousel_grid {
+  position: absolute;
+  top: 0;
+  left: 8%;
+  opacity: 0;
+  animation: display 20s infinite;
+}
+
+.carousel_grid:nth-child(2) {
+  animation-delay: 4s;
+}
+.carousel_grid:nth-child(3) {
+  animation-delay: 8s;
+}
+.carousel_grid:nth-child(4) {
+  animation-delay: 12s;
+}
+.carousel_grid:nth-child(5) {
+  animation-delay: 16s;
+}
+
+.carousel_grid {
+  width: 100%;
+  height: 60vh;
+  display: grid;
+  grid: repeat(3, 200px) / repeat(4, 200px);
+}
+.carousel_grid img {
+  grid-area: 1/1/-1/-1;
+}
+
+.carousel_grid .description {
+  grid-area: 2/3/-1/-1;
+  position: relative;
+  align-self: start;
+  padding: 2rem;
+  background-color: #bdbdbd;
+  margin-top: -4rem;
+  margin-right: -15rem;
+  opacity: 0.7;
+}
+
+.carousel_grid .description:after {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 10px;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-image: linear-gradient(
+    180deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(191, 54, 12, 1) 37%,
+    rgba(237, 109, 58, 1) 94%
+  );
+}
+
+.carousel_grid .description h1 {
+  font-size: 1.7rem;
+  text-align: left;
+}
+
+.carousel_anchor {
+  color: #38618c;
+}
+
+.carousel_anchor:hover {
+  text-decoration: underline;
+}
+
+.carousel_anchor i {
+  margin-top: 1rem;
+  margin-left: 0.4rem;
+  transition: margin-left 0.2s ease-in-out;
+}
+
+.carousel_anchor:hover i {
+  margin-left: 1rem;
+}
+
+/*? Next and Prevois Buttons  */
+.carousel_prev,
+.carousel_next {
+  cursor: pointer;
+  position: absolute;
+  top: 200px;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: #333;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 5px 0 0 5px;
+  user-select: none;
+}
+
+.carousel_prev:hover,
+.carousel_next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+}
+
+.carousel_next {
+  right: 0;
+  border-radius: 0 5px 5px 0;
+}
+
+/*! BOTTOM MENU */
+
+.btm-menu-container {
+  display: inline-block;
+  padding: 0.5rem 0 0;
+  margin: 0 auto;
+  box-sizing: border-box;
+  transform: translateY(-4rem);
+  position: relative;
+  background-color: #fafafa;
+}
+
+.grid_btn-menu {
+  display: flex;
+  list-style: none;
+}
+
+.grid_btn-menu li a {
+  display: inline-block;
+  padding: 1.5rem 2rem;
+  position: relative;
+  color: #414141;
+}
+
+.grid_btn-menu li {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid_btn-menu li i {
+  color: #414141;
+  font-size: 1.5rem;
+}
+
+.grid_btn-menu li a:after {
+  content: '';
+  position: absolute;
+  bottom: -1rem;
+  left: 5%;
+  width: 90%;
+  height: 4px;
+  background-color: #bdbdbd;
+  display: none;
+}
+
+.grid_btn-menu li:hover a:after {
+  display: block;
+}
+
+.grid_btn-menu li:not(:last-child) a {
+  border-right: 1px solid #e0e0e0;
+}
+
+/*! PSA */
+
+.COVID-19 {
+  padding: 2rem;
+  color: #414141;
+}
+
+.COVID-19 h1 {
+  text-align: left;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.flex_container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex_container .covid_group {
+  flex: 0 1 calc(33.33% - 1rem);
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.flex_container .covid_group h3 {
+  font-size: 0.9rem;
+}
+
+.flex_container .covid_group h2 {
+  font-size: 1rem;
+}
+
+.flex_container .covid_group p {
+  font-size: 1rem;
+  flex: 1;
+}
+
+.group_1 a:last-of-type {
+  margin-top: 1rem;
+  color: #38618c;
+  text-decoration: underline;
+}
+
+/*! MEDIA QUERIES */
+
+@media (min-width: 992px) {
+  h1 {
+    font-size: 40px;
+  }
+  .aside-left {
+    display: block;
+  }
+
+  .aside-right {
+    width: 80%;
+  }
+}
